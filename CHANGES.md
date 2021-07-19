@@ -1,6 +1,15 @@
 unreleased
 ----------
 
+- Fix location in parse errors (#247, @pitag-ha)
+
+- `Location`: add `set_filename` and `Error.get_location` (#247, @pitag-ha)
+
+- Drop dependency on OMP (#187, @pitag-ha)
+
+- Drop `Syntaxerr` from the public API. Doesn't affect any user in the
+  [ppx universe](https://github.com/ocaml-ppx/ppx_universe) (#244, @pitag-ha)
+
 - Add a lower-bound constraint for Sexplib0 (#240, @pitag-ha)
 
 - Fix bug due to which unwanted public binaries got installed when installing
@@ -29,6 +38,12 @@ unreleased
 
 - Fix in `Location`: make `raise_errorf` exception equivalent to exception
   `Error` (#242, @pitag-ha)
+
+- Fix in `Pprintast`: correctly pretty print local type substitutions, e.g.
+  type t := ... (#261, @matthewelse)
+
+- Add `Ast_pattern.esequence`, for matching on any number of sequenced
+  expressions e.g. `do_a (); do_b (); ...`. (#264, @matthewelse)
 
 0.22.0 (04/02/2021)
 -------------------

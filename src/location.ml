@@ -1,6 +1,6 @@
 open Import
 
-module L = Ocaml_common.Location
+module L = Astlib.Location
 
 type t = location =
   { loc_start : Lexing.position
@@ -20,6 +20,15 @@ let in_file name =
   ; loc_end   = loc
   ; loc_ghost = true
   }
+
+let set_filename loc fn =
+  let loc_start =
+    {loc.loc_start with pos_fname = fn}
+  in
+  let loc_end =
+    {loc.loc_end with pos_fname = fn}
+  in
+  {loc with loc_start; loc_end}
 
 let none = in_file "_none_"
 
